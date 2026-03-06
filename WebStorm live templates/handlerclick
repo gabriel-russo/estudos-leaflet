@@ -1,6 +1,6 @@
 import {Map, Handler, LeafletMouseEvent} from 'leaflet';
 
-export default class ClickLogger extends Handler {
+export default class $CLS$ extends Handler {
   protected _map: Map;
 
   constructor(map: Map) {
@@ -8,14 +8,14 @@ export default class ClickLogger extends Handler {
   }
 
   public addHooks() {
-    this._map.on('click', this._log, this);
+    this._map.on('click', this._click, this);
   }
 
   public removeHooks() {
-    this._map.off('click', this._log, this);
+    this._map.off('click', this._click, this);
   }
 
-  private _log(e: LeafletMouseEvent) {
+  private _click(e: LeafletMouseEvent) {
     console.log(e.latlng);
   }
 }
