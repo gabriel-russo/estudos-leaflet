@@ -29,6 +29,7 @@ export default class Ruler extends Handler {
     DomEvent.on(this._map.getContainer(), 'mousemove', this.updateCoords, this);
     this._map.on('click', this.registerVertex, this);
     this._map.on('dblclick', this.finish, this);
+    this._map.doubleClickZoom.disable();
   }
 
   public removeHooks() {
@@ -40,6 +41,7 @@ export default class Ruler extends Handler {
     );
     this._map.off('click', this.registerVertex, this);
     this._map.off('dblclick', this.finish, this);
+    this._map.doubleClickZoom.enable();
   }
 
   private updateCoords(e: Event & MouseEvent) {
@@ -113,7 +115,6 @@ export default class Ruler extends Handler {
       this._polyline.addTo(this._map);
       return;
     }
-
     this._polyline.addLatLng(e.latlng);
     this._latlngs.splice(0);
   }
@@ -123,6 +124,6 @@ export default class Ruler extends Handler {
     this._cursorMarker.removeFrom(this._map);
     delete this._cursorPosition;
     delete this._latlngs;
-    this.removeHooks();
+    this.disable();
   }
 }
