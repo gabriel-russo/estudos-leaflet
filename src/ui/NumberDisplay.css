@@ -1,0 +1,19 @@
+.leaflet-number-display {
+  /* Tooltip default CSS */
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+
+  /* Number display styling */
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #fafafa;
+  -webkit-text-stroke: 0.037rem #0f0f0f;
+  text-shadow: 1px 1px 1px #0f0f0f;
+}
+
+/* Removing arrow */
+.leaflet-number-display:before {
+  content: none;
+}

@@ -1,4 +1,4 @@
-import {Map, Handler, LeafletMouseEvent} from 'leaflet';
+import { Map, Handler, LeafletMouseEvent } from 'leaflet';
 
 export default class ClickLogger extends Handler {
   protected _map: Map;
