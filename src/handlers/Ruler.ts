@@ -11,7 +11,7 @@ import {
 import { EPSG5880 } from '../CRS';
 import { NumberDisplay } from '../ui';
 
-export default class DrawPolyline extends Handler {
+export default class Ruler extends Handler {
   protected _map: Map;
   private _polyline?: Polyline;
   private _cursorMarker?: CircleMarker;
@@ -104,7 +104,12 @@ export default class DrawPolyline extends Handler {
 
   private registerVertex(e: LeafletMouseEvent) {
     if (!this._polyline) {
-      this._polyline = new Polyline([e.latlng], { interactive: false });
+      this._polyline = new Polyline([e.latlng], {
+        interactive: false,
+        color: '#ff7f00',
+        weight: 4,
+        dashArray: '20,6',
+      });
       this._polyline.addTo(this._map);
       return;
     }

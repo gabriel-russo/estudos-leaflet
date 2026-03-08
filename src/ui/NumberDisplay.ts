@@ -4,10 +4,12 @@ import './NumberDisplay.css';
 export default class NumberDisplay extends Tooltip {
   constructor() {
     super();
+    this.options.direction = 'center';
     this.options.className = 'leaflet-number-display';
     this.options.permanent = true;
     this.options.content = '';
   }
+
   public onAdd(map: Map): this {
     this._map = map;
     return super.onAdd(this._map);
